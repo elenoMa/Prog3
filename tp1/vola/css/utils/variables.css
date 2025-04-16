@@ -1,0 +1,17 @@
+/* variables.css */
+:root {
+    /* Colors */
+    --color-primary: #1e90ff;
+    --color-secondary: #ff6b6b;
+    --color-accent: #ffa502;
+    --color-bg: #f5f5f5;
+    --color-text: #222;
+    --color-white: #ffffff;
+
+    /* Fonts */
+    --font-base: 'Poppins', sans-serif;
+
+    /* Sizes */
+    --max-width: 1200px;
+    --spacing: 1rem;
+}
