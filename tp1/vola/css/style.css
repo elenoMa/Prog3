@@ -25,14 +25,7 @@
 @import url('./utils/media-queries.css');
 @import url('./utils/responsive.css');
 
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilos a mover a sus respectivos archivos  */
 body, html {
     font-family: 'Poppins', sans-serif;
     background-color: #e0f7fa;
