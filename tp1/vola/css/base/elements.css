@@ -17,18 +17,44 @@ img {
     display: block;
 }
 
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-}
 
-input,
+
+/* input, */
 textarea,
 select {
     font-family: inherit;
     font-size: inherit;
     border: none;
     outline: none;
+}
+
+label {
+    font-weight: 600;
+    margin-top: 20px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #00aeef;
+    color: white;
+    border: none;
+    padding: 14px;
+    margin-top: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007bbd;
 }

@@ -1,14 +1,22 @@
 /* Fuentes, tamaños, pesos, estilos de texto */
-body {
+body, html{
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    color: #222;
+    color: #333;
     line-height: 1.6;
-    background-color: #fefefe;
+    background-color: #e0f7fa;
+}
+
+/* Estilos de H@ de ariel para el form a revisar....  */
+h2{
+    font-family: 'Pacifico', cursive;
+    color: #00aeef;
+    margin-bottom: 30px;
+    font-size: 32px;
 }
 
 h1,
-h2,
+/* h2, */
 h3,
 h4,
 h5,
@@ -32,4 +40,25 @@ em {
 
 small {
     font-size: 0.875em;
+}
+
+/* a revisar */
+
+.brand {
+    font-weight:800;
+}
+
+.contact-info h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.contact-info a {
+    color: #fff;
+    text-decoration: underline;
 }
