@@ -1,0 +1,26 @@
+/* Organización de las secciones de contenido */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.form-section {
+    flex: 1;
+    padding: 50px;
+    background-color: #f4fcff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-section {
+    flex: 1;
+    background-color: #00aeef;
+    color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
