@@ -1,4 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 .completado {
     text-decoration: line-through;
     color: gray;
+}
+
+/* Estilo para los botones */
+.action-button {
+    margin: 5px;
+    padding: 2px 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.task-item {
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.completado {
+    text-decoration: line-through;
+    color: rgb(8, 132, 8);
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.input-text {
+    margin: 5px;
+    padding: 2px 8px;
+    font-size: 20px;
 }
