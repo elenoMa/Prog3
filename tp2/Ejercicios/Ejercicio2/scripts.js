@@ -3,22 +3,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const addButton = document.getElementById("addButton");
     const itemList = document.getElementById("itemList");
 
-    addButton.addEventListener("click", () => {
+    // Función para crear y agregar un nuevo ítem a la lista
+    const addItem = () => {
         const inputValue = textInput.value.trim();
-        if (inputValue) {
-            const li = document.createElement("li");
-            li.textContent = inputValue;
+        if (!inputValue) return;
 
-            const deleteButton = document.createElement("button");
-            deleteButton.textContent = "Eliminar";
-            deleteButton.addEventListener("click", () => {
-                itemList.removeChild(li);
-            });
+        const li = document.createElement("li");
+        li.textContent = inputValue;
 
-            li.appendChild(deleteButton);
-            itemList.appendChild(li);
+        const deleteButton = createDeleteButton(li);
+        li.appendChild(deleteButton);
+        itemList.appendChild(li);
 
-            textInput.value = ""; // limpiar el campo de entrada
-        }
+        textInput.value = "";
+    };
+
+    // Función para crear el botón de eliminar
+    const createDeleteButton = (item) => {
+        const button = document.createElement("button");
+        button.textContent = "Eliminar";
+        button.classList.add("delete-btn");
+
+        button.addEventListener("click", () => {
+            item.remove();
+        });
+
+        return button;
+    };
+
+    // Asignar evento al botón "Agregar"
+    addButton.addEventListener("click", addItem);
+
+    //Permitir agregar con Enter
+    textInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") addItem();
     });
 });
