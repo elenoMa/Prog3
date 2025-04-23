@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container">
+            <img src="../img/logo.png" alt="logo" class="header__logo">
+
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="../index.html" class="header__nav-link">Inicio</a></li>
+
+                    <li class="header__nav-item"><a href="../pages/services.html" class="header__nav-link">Servicios</a>
+                    </li>
+                    <li class="header__nav-item"><a href="../pages/destinations.html"
+                            class="header__nav-link">Destinos</a></li>
+                    <li class="header__nav-item"><a href="../pages/gallery.html" class="header__nav-link">Imagenes</a>
+                    </li>
+                    <li class="header__nav-item"><a href="../pages/contact.html" class="header__nav-link">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="display: flex; align-items: center; flex-direction: column; justify-content: center;">
+        <h2>Galeria de imagenes</h2>
+        <div class="gallery__grid">
+            <img src="../img/destinos/bariloche-1.jpg" alt="Imagen 1" class="gallery__img" />
+            <img src="../img/destinos/bsas.jpeg" alt="Imagen 2" class="gallery__img" />
+            <img src="../img/destinos/china.jpg" alt="Imagen 3" class="gallery__img" />
+            <img src="../img/destinos/coliseo.jpeg" alt="Imagen 4" class="gallery__img" />
+            <img src="../img/destinos/gran-canion.jpg" alt="Imagen 5" class="gallery__img" />
+            <img src="../img/destinos/iguazu.jpg" alt="Imagen 5" class="gallery__img" />
+            <img src="../img/destinos/india.jpg" alt="Imagen 6" class="gallery__img" />
+            <img src="../img/destinos/LaCarolina.jpeg" alt="Imagen 7" class="gallery__img" />
+            <img src="../img/destinos/machu.jpg" alt="Imagen 8" class="gallery__img" />
+            <img src="../img/destinos/maldivas.jpeg" alt="Imagen 9" class="gallery__img" />
+            <img src="../img/destinos/bariloche-1.jpg" alt="Imagen 10" class="gallery__img" />
+            <img src="../img/destinos/china.jpg" alt="Imagen 10" class="gallery__img" />
+            <img src="../img/destinos/mdq.jpg" alt="Imagen 10" class="gallery__img" />
+            <img src="../img/destinos/MENDOZA.jpg" alt="Imagen 10" class="gallery__img" />
+            <img src="../img/destinos/p[iramides.jpg" alt="Imagen 10" class="gallery__img" />
+
+
+        </div>
+
+        <!-- Modal para zoom -->
+        <div id="imageModal" class="modal">
+            <span class="modal__close">&times;</span>
+            <img class="modal__content" id="modalImg">
+        </div>
+
+        <!-- Modal para zoom -->
+        <div id="imageModal" class="modal">
+            <span class="modal__close">&times;</span>
+            <img class="modal__content" id="modalImg">
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        <section class="footer__container">
+            <div class="footer__text">
+                <p>© 2025 Volá!. All rights reserved.</p>
+            </div>
+        </section>
+    </footer>
+
+    <button id="scrollToTopBtn">↑</button>
+
+    <script type="module" src="../JS/buttonScroll.js"></script>
+    <script type="module" src="../JS/image-modal.js"></script>
+
+</body>
+
+</html>

@@ -16,6 +16,7 @@
 @import url('./components/contact-form.css');
 @import url('./components/gallery.css');
 @import url('./components/hero-carousel.css');
+@import url('./components/image-gallery.css');
 
 /* Utilities */
 @import url('./utils/helpers.css');
