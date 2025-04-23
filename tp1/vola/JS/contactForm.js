@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const formulario = document.getElementById("contact-form");
   const personasInput = document.getElementById("personas");
   const edadesContainer = document.createElement("div");
-  edadesContainer.id = "edades-container";
+  edadesContainer.id = "edades-extras";
   personasInput.insertAdjacentElement("afterend", edadesContainer);
 
   if (!formulario || !personasInput || !edadesContainer) {
