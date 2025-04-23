@@ -47,16 +47,13 @@
     }
   }
   
-  /* A revisar */
-
   @media screen and (max-width: 768px) {
     .container {
-    flex-direction: column;
+        flex-direction: column;
     }
 
     .form-section,
     .info-section {
-    padding: 30px;
+        padding: 30px;
     }
 }
-

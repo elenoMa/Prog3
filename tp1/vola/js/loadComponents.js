@@ -10,10 +10,18 @@ const loadComponent = async (url, containerId) => {
 };
 
 // Carga los componentes en sus respectivos contenedores
-loadComponent('./components/header.html', 'header');
 loadComponent('./components/main.html', 'main');
-loadComponent('./components/footer.html', 'footer');
 loadComponent('./components/carousel.html', 'carousel');
+loadComponent('./components/about-us.html', 'about-us');
+loadComponent('./components/servicios.html', 'servicios');
+loadComponent('./components/destinos.html', 'destinos');
+
+loadComponent('./components/footer.html', 'footer');
+
+loadComponent('./components/header.html', 'header');
+
+
+
 loadComponent('./components/contact-form.html', 'container') // ESTA CLASE ESTA MAL NOMBRADA.... 
 //   MAS ADELANTE SE PUEDE CAMBIAR A ALGO MAS BONITO....
 
