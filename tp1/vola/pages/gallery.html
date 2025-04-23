@@ -35,8 +35,40 @@
         </div>
     </header>
 
-    <main>
-        <div class="gallery"></div>
+    <main style="display: flex; align-items: center; flex-direction: column; justify-content: center;">
+        <h2>Galeria de imagenes</h2>
+        <div class="gallery__grid">
+            <img src="../img/destinos/bariloche-1.jpg" alt="Imagen 1" class="gallery__img" />
+            <img src="../img/destinos/bsas.jpeg" alt="Imagen 2" class="gallery__img" />
+            <img src="../img/destinos/china.jpg" alt="Imagen 3" class="gallery__img" />
+            <img src="../img/destinos/coliseo.jpeg" alt="Imagen 4" class="gallery__img" />
+            <img src="../img/destinos/gran-canion.jpg" alt="Imagen 5" class="gallery__img" />
+            <img src="../img/destinos/iguazu.jpg" alt="Imagen 5" class="gallery__img" />
+            <img src="../img/destinos/india.jpg" alt="Imagen 6" class="gallery__img" />
+            <img src="../img/destinos/LaCarolina.jpeg" alt="Imagen 7" class="gallery__img" />
+            <img src="../img/destinos/machu.jpg" alt="Imagen 8" class="gallery__img" />
+            <img src="../img/destinos/maldivas.jpeg" alt="Imagen 9" class="gallery__img" />
+            <img src="../img/destinos/bariloche-1.jpg" alt="Imagen 10" class="gallery__img" />
+            <img src="../img/destinos/china.jpg" alt="Imagen 10" class="gallery__img" />
+            <img src="../img/destinos/mdq.jpg" alt="Imagen 10" class="gallery__img" />
+            <img src="../img/destinos/MENDOZA.jpg" alt="Imagen 10" class="gallery__img" />
+            <img src="../img/destinos/p[iramides.jpg" alt="Imagen 10" class="gallery__img" />
+
+
+        </div>
+
+        <!-- Modal para zoom -->
+        <div id="imageModal" class="modal">
+            <span class="modal__close">&times;</span>
+            <img class="modal__content" id="modalImg">
+        </div>
+
+        <!-- Modal para zoom -->
+        <div id="imageModal" class="modal">
+            <span class="modal__close">&times;</span>
+            <img class="modal__content" id="modalImg">
+        </div>
+
     </main>
 
     <footer id="footer">
@@ -50,6 +82,7 @@
     <button id="scrollToTopBtn">↑</button>
 
     <script type="module" src="../JS/buttonScroll.js"></script>
+    <script type="module" src="../JS/image-modal.js"></script>
 
 </body>
 
