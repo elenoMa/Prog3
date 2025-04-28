@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('taskInput');
     const taskList = document.getElementById('taskList');
 
-    form.addEventListener('submit', event => {
+    form.addEventListener('click', event => {
         event.preventDefault();
         const taskText = taskInput.value.trim();
 
