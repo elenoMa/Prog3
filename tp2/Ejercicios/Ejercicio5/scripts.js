@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('formulario');
 
-    form.addEventListener('click', function (event) {
-        event.preventDefault();
+    form.addEventListener('click', function (e) {
+        e.preventDefault();
         clearErrors();
 
         const nombre = getValue('nombre');
