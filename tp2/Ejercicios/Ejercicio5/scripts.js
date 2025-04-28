@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('formulario');
 
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('click', function (event) {
         event.preventDefault();
         clearErrors();
 
