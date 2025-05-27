@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const addButton = document.getElementById("addButton");
     const itemList = document.getElementById("itemList");
 
+<<<<<<< Updated upstream
     // Función para crear y agregar un nuevo ítem a la lista
     const addItem = () => {
         const inputValue = textInput.value.trim();
@@ -39,3 +40,24 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Enter") addItem();
     });
 });
+=======
+    addButton.addEventListener("click", () => {
+        const inputValue = textInput.value.trim();
+        if (inputValue) {
+            const li = document.createElement("li");
+            li.textContent = inputValue;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Eliminar";
+            deleteButton.addEventListener("click", () => {
+                itemList.removeChild(li);
+            });
+
+            li.appendChild(deleteButton);
+            itemList.appendChild(li);
+
+            textInput.value = ""; // limpiar el campo de entrada
+        }
+    });
+});
+>>>>>>> Stashed changes
