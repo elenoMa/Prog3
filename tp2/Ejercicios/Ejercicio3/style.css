@@ -5,6 +5,7 @@
 
 .oculto{
     display: none;
+<<<<<<< Updated upstream
 }
 
 /* Estilo para los botones */
@@ -13,4 +14,6 @@
     padding: 8px 12px;
     font-size: 16px;
     cursor: pointer;
+=======
+>>>>>>> Stashed changes
 }
