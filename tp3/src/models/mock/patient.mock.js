@@ -1,5 +1,5 @@
-const Persona = require("./../mock/entities/paciente.entity.js");
-const Config = require("./../../config/config.js");
+const Persona = require("../../entities/domain/patient.entity.js");
+const Config = require("./../../config/env.js");
 const jwt = require("jsonwebtoken");
 class PacientesModel {
   constructor() {

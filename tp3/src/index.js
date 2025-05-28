@@ -1,5 +1,5 @@
 const Server = require('./server.js');
-const {connectDB} = require('./models/sqlite/config/db.js');
+const {connectDB} = require('./config/database.js');
 
 
 connectDB()

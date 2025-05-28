@@ -1,4 +1,4 @@
-const {Paciente} = require('../sqlite/entities/paciente.entity.js');
+const {Paciente} = require('../entities/database/patient.entity.js');
 
   const getPacientesModel =  ()=>{
     const users = Paciente.findAll();

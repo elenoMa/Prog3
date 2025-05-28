@@ -1,6 +1,6 @@
 const {Router} = require('express');
-const pacientesController = require('../controllers/API/pacientes.controller.js');
-const  {verifyTokenMiddleware}  = require('../middlewares/verifyToken.middleware.js');
+const pacientesController = require('../controllers/patient-controller.js');
+const  {verifyTokenMiddleware}  = require('../middlewares/verify-token.js');
 const rutaPacientes = Router();
 rutaPacientes.get('/', verifyTokenMiddleware, pacientesController.list);
 rutaPacientes.post('/login',pacientesController.login)
