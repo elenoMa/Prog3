@@ -9,11 +9,12 @@ const sequelize = new Sequelize({
 
 const connectDB = async () => {
   try {
-    await sequelize.sync();
-    console.log('Base de datos conectada.');
+    await sequelize.sync({ alter: true });
+    console.log('Base de datos conectada y sincronizada con alter.');
   } catch (error) {
     console.error('Error conectando a la base de datos:', error);
   }
 };
+
 
 module.exports = { sequelize, connectDB };

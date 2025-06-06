@@ -1,55 +1,141 @@
-const pacientesModel = require("./../../models/mock/pacientes.models.js");
-const Paciente = require("./../../models/mock/entities/paciente.entity.js");
+// controllers/API/pacientes.controller.js
+
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
+const {
+  getPacienteByEmail,
+  createPaciente,
+  listPacientes,
+  deletePaciente,
+  updatePaciente,
+  listPacienteById
+} = require("../../models/sqlite/paciente.model");
+
+const Config = require("../../config/config.js");
 
 class PacientesController {
   async login(req, res) {
-    //recolecto credenciales
     try {
       const { email, password } = req.body;
 
-      const token = await pacientesModel.validate(email, password);
-    
-         res.status(200).json(token);
-   
-        
+      const paciente = await getPacienteByEmail(email);
+      if (!paciente) {
+        return res.status(401).json({ message: "Paciente no encontrado" });
+      }
 
+      const isPasswordValid = await bcrypt.compare(password, paciente.password);
+      if (!isPasswordValid) {
+        return res.status(401).json({ message: "Contraseña incorrecta" });
+      }
 
-     
+      const token = jwt.sign(
+        { id: paciente.id, email: paciente.email },
+        Config.secreteWord,
+        { expiresIn: Config.expiresIn }
+      );
+
+      res.status(200).json({
+        token
+      });
+
     } catch (error) {
       res.status(401).json({ message: error.message });
     }
   }
 
   async list(req, res) {
-    res.status(200).json(await pacientesModel.list());
+    try {
+      const pacientes = await listPacientes();
+      res.status(200).json(pacientes);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
+
+  async findById(req, res) {
+    try {
+      const id = req.params.id;
+      const paciente = await listPacienteById(id);
+      if (!paciente) {
+        return res.status(404).json({ message: `No existe el paciente con id: ${id}` });
+      }
+      res.status(200).json(paciente);
+
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
   async create(req, res) {
-    const { dni, nombre, apellido, email } = req.body;
+    try {
+      const { dni, nombre, apellido, email, password } = req.body;
 
-    const nuevoPaciente = new Paciente(dni, nombre, apellido, email);
+      if (!dni || !nombre || !apellido || !email || !password) {
+        return res.status(400).json({ message: "Todos los campos son obligatorios" });
+      }
 
-    const info = await pacientesModel.create(nuevoPaciente);
-    res.status(200).json(info);
+      const existente = await getPacienteByEmail(email);
+      if (existente) {
+        return res.status(409).json({ message: "El correo ya está registrado" });
+      }
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      const nuevoPaciente = await createPaciente({
+        dni,
+        nombre,
+        apellido,
+        email,
+        password: hashedPassword
+      });
+
+      res.status(200).json(nuevoPaciente);
+
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
-  delete(req, res) {
-    const id = req.params.id;
 
-    const pacienteBorrado = pacientesModel.delete(id)   ;
-    pacienteBorrado.then(paciente=>{
-        res.status(200).json(paciente);
-    }).catch(
-        error=>{
-            res.status(404).json({message:`no existe el paciente conh el id:${id}`,error})}
-        
-    );
-   
+  async delete(req, res) {
+    try {
+      const id = req.params.id;
+      const eliminado = await deletePaciente(id);
+
+      if (eliminado === 0) {
+        return res.status(404).json({ message: `No existe el paciente con id: ${id}` });
+      }
+
+      res.status(200).json({ message: "Paciente eliminado correctamente" });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
-  update(req, res) {
-    const id = req.params.id;
-    const { dni, nombre, apellido, email } = req.body;
-    const nuevoPaciente = new Paciente(dni, nombre, apellido, email);
-    pacientesModel.update(id, nuevoPaciente);
-    res.status(200).json({ message: "actualizado" });
+
+  async update(req, res) {
+    try {
+      const id = req.params.id;
+      const { dni, nombre, apellido, email, password } = req.body;
+
+      const hashedPassword = password ? await bcrypt.hash(password, 10) : undefined;
+
+      const actualizado = await updatePaciente(id, {
+        dni,
+        nombre,
+        apellido,
+        email,
+        password: hashedPassword
+      });
+
+      if (!actualizado) {
+        return res.status(404).json({ message: `No existe el paciente con id: ${id}` });
+      }
+
+      res.status(200).json({ message: "Paciente actualizado correctamente" });
+
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
 }
 
