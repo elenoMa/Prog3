@@ -1,6 +1,7 @@
-// turnos.entity.js
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/db.js');
+const { EstadoTurno } = require('./estadoTurno.entity.js');
+const { Paciente } = require('./paciente.entity.js');
 
 const Turno = sequelize.define('Turno', {
     id: {
@@ -16,14 +17,26 @@ const Turno = sequelize.define('Turno', {
         type: DataTypes.DATE,
         allowNull: false,
     },
-    estado: {
-        type: DataTypes.ENUM('reservado', 'cancelado', 'finalizado'),
+    estadoId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: 'reservado',
+        references: {
+            model: EstadoTurno,
+            key: 'id',
+        }
+    },
+    motivo: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: '',
     },
 }, {
     tableName: 'Turnos',
     timestamps: true,
 });
 
-module.exports = { Turno }; // ✅ debe exportarse como objeto con llaves
+Turno.belongsTo(EstadoTurno, { foreignKey: 'estadoId', as: 'estado' });
+EstadoTurno.hasMany(Turno, { foreignKey: 'estadoId' });
+Turno.belongsTo(Paciente, { foreignKey: 'idPaciente', as: 'paciente' });
+
+module.exports = { Turno };
