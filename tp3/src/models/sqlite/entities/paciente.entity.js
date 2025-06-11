@@ -2,6 +2,7 @@
 
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('./../config/db.js');
+const bcrypt = require('bcrypt');
 
 const Paciente = sequelize.define('Paciente', {
   id: {
@@ -23,6 +24,12 @@ const Paciente = sequelize.define('Paciente', {
   password: DataTypes.STRING
 }, {
   tableName: 'pacientes'
+});
+
+Paciente.beforeCreate(async (paciente) => {
+  if (paciente.password) {
+    paciente.password = await bcrypt.hash(paciente.password, 10);
+  }
 });
 
 module.exports = { Paciente };
