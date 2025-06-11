@@ -16,6 +16,8 @@ Este proyecto es una aplicación web para la gestión de turnos médicos, desarr
 - [Vistas](#vistas)
 - [Scripts Útiles](#scripts-útiles)
 - [Licencia](#licencia)
+- [Rutas de la API REST](#rutas-de-la-api-rest)
+- [Configuración del archivo `.env`](#configuración-del-archivo-env)
 
 ---
 
@@ -119,6 +121,42 @@ Un turno pertenece a un paciente y a un estado.
 
 ---
 
+## Rutas de la API REST
+
+### Pacientes (`/api/pacientes`)
+
+- `POST /api/pacientes/login`  
+  **Público** — Login de paciente (devuelve token JWT)
+- `POST /api/pacientes/register`  
+  **Protegido** — Registrar un nuevo paciente (requiere token)
+- `POST /api/pacientes/refresh-token`  
+  **Protegido** — Renovar token JWT
+- `GET /api/pacientes/`  
+  **Protegido** — Listar todos los pacientes
+- `GET /api/pacientes/:id`  
+  **Protegido** — Obtener paciente por ID
+- `PUT /api/pacientes/:id`  
+  **Protegido** — Actualizar datos de paciente
+- `DELETE /api/pacientes/:id`  
+  **Protegido** — Eliminar paciente
+
+### Turnos (`/api/turnos`)
+
+- `POST /api/turnos`  
+  **Protegido** — Crear un nuevo turno
+- `GET /api/turnos`  
+  **Protegido** — Listar todos los turnos
+- `GET /api/turnos/:id`  
+  **Protegido** — Obtener turno por ID
+- `PUT /api/turnos/:id`  
+  **Protegido** — Actualizar estado de un turno
+- `DELETE /api/turnos/:id`  
+  **Protegido** — Cancelar un turno
+- `GET /api/turnos/paciente/:pacienteId`  
+  **Protegido** — Listar turnos de un paciente específico
+
+---
+
 ## Vistas
 
 - **index.ejs:** Página de bienvenida.
@@ -152,4 +190,38 @@ Puedes modificarlo y adaptarlo para fines educativos o personales.
 ---
 
 ¿Dudas, sugerencias o errores?  
-Abre un issue en el [repositorio de GitHub](https://github.com/santozzi/practico3progra3/issues). 
+Abre un issue en el [repositorio de GitHub](https://github.com/santozzi/practico3progra3/issues).
+
+---
+
+## Configuración del archivo `.env`
+
+Debes crear un archivo `.env` en la raíz del proyecto con las siguientes variables:
+
+```
+# Palabra secreta para JWT (obligatoria)
+SECRETE_WORD=tu_clave_secreta_super_segura
+
+# Tiempo de expiración del token JWT (opcional, por defecto 1h)
+EXPIRES_IN=1h
+
+# Algoritmo JWT (opcional, por defecto HS256)
+JWT_ALGORITHM=HS256
+
+# Emisor del JWT (opcional)
+JWT_ISSUER=clinica-api
+
+# Audiencia del JWT (opcional)
+JWT_AUDIENCE=clinica-client
+
+# Rondas de bcrypt para hasheo de contraseñas (opcional, por defecto 10)
+BCRYPT_ROUNDS=10
+
+# Puerto del servidor (opcional, por defecto 3000)
+PORT=3000
+
+# Origen permitido para CORS (opcional)
+CORS_ORIGIN=*
+```
+
+Guarda el archivo y reinicia el servidor para que los cambios tengan efecto. 
