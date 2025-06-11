@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+
+    <main>
+        <h2>Error <%= error.status || 500 %>
+        </h2>
+        <p>
+            <%= error.message %>
+        </p>
+        <a href="/">Volver al inicio</a>
+    </main>
+
+    <%- include('partials/footer') %>

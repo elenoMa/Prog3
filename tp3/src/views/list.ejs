@@ -1,0 +1,52 @@
+<!--
+  Vista de Listado de Turnos
+  Esta vista muestra una tabla con todos los turnos médicos registrados,
+  incluyendo información del paciente y estado del turno.
+-->
+
+<%- include('partials/header') %>
+
+<main class="container">
+  <h1>Listado de Turnos</h1>
+
+  <!-- Tabla de turnos -->
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Paciente</th>
+          <th>Fecha y Hora</th>
+          <th>Estado</th>
+          <th class="col-motivo">Motivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% turnos.forEach(turno => { %>
+          <tr>
+            <td><%= turno.id %></td>
+            <td><%= turno.paciente ? `${turno.paciente.nombre} ${turno.paciente.apellido}` : 'N/A' %></td>
+            <td>
+              <% if (turno.fechaHora) { %>
+                <%= turno.fechaHora.toLocaleString ? turno.fechaHora.toLocaleString() : turno.fechaHora %>
+              <% } else { %>
+                <%= turno.fecha %> <%= turno.hora %>
+              <% } %>
+            </td>
+            <td><%= turno.estado && turno.estado.nombre ? turno.estado.nombre : (turno.estado || '-') %></td>
+            <td class="col-motivo"><%= turno.motivo %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mensaje si no hay turnos -->
+  <% if (turnos.length === 0) { %>
+    <div class="alert alert-info">
+      No hay turnos registrados.
+    </div>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>

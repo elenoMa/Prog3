@@ -6,16 +6,19 @@ const { verifyTokenMiddleware } = require('../middlewares/verifyToken.middleware
 
 const rutaTurnos = Router();
 
-// Obtener turnos por idPaciente (no requiere autenticación)
+// Todas las rutas requieren autenticación
+rutaTurnos.use(verifyTokenMiddleware);
+
+// Obtener turnos por idPaciente
 rutaTurnos.get('/:idPaciente', turnosController.getTurnosByPaciente);
 
-// Cancelar un turno (requiere autenticación)
-rutaTurnos.delete('/:idTurno', verifyTokenMiddleware, turnosController.cancelarTurno);
-
-// Crear un nuevo turno (requiere autenticación)
+// Crear un nuevo turno
 rutaTurnos.post('/new', turnosController.crearTurno);
 
 // Actualizar un turno
-rutaTurnos.put('/:id', verifyTokenMiddleware, turnosController.updateTurno);
+rutaTurnos.put('/:id', turnosController.updateTurno);
+
+// Cancelar un turno
+rutaTurnos.delete('/:idTurno', turnosController.cancelarTurno);
 
 module.exports = rutaTurnos;

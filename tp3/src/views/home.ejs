@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+    <h2>Turnos recientes</h2>
+    <% if (!turnos || turnos.length === 0) { %>
+        <p>No hay turnos registrados.</p>
+    <% } else { %>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID Paciente</th>
+                    <th>Fecha y Hora</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% turnos.forEach(turno => { %>
+                    <tr>
+                        <td><%= turno.id %></td>
+                        <td><%= turno.idPaciente %></td>
+                        <td><%= turno.fechaHora.toLocaleString ? turno.fechaHora.toLocaleString() : turno.fechaHora %></td>
+                        <td><%= turno.estado && turno.estado.nombre ? turno.estado.nombre : (turno.estado || '-') %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+
+<%- include('partials/footer') %> 

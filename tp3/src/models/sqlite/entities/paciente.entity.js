@@ -21,6 +21,8 @@ const Paciente = sequelize.define('Paciente', {
     unique: true
   },
   password: DataTypes.STRING
+}, {
+  tableName: 'pacientes'
 });
 
 module.exports = { Paciente };

@@ -1,0 +1,75 @@
+<!--
+  Partial: Header
+  Este partial contiene el encabezado común a todas las páginas,
+  incluyendo la barra de navegación y los enlaces a recursos externos.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sistema de Turnos Médicos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      h1, .header-glass h1 {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.02em;
+      }
+      .nav-links li a, button, input[type="submit"], a.button {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.01em;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="background-decor">
+      <!-- SVGs decorativos fluidos -->
+      <svg class="bg-svg bg-svg-top" width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="300" cy="200" rx="300" ry="200" fill="url(#paint0_radial)" fill-opacity="0.18"/>
+        <defs>
+          <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientTransform="translate(300 200) scale(300 200)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#00d4ff"/>
+            <stop offset="1" stop-color="#007bff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <svg class="bg-svg bg-svg-bottom" width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="300" cy="200" rx="300" ry="200" fill="url(#paint1_radial)" fill-opacity="0.13"/>
+        <defs>
+          <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientTransform="translate(300 200) scale(300 200)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#c9e7ff"/>
+            <stop offset="1" stop-color="#007bff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <header class="header-glass">
+      <div class="header-content">
+        <h1>Sistema de Turnos Médicos</h1>
+        <nav class="navbar">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/listar">Listar Turnos</a></li>
+                <li><a href="/nuevo-turno">Nuevo Turno</a></li>
+                <li><a href="/cancelar">Cancelar Turno</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+    <script src="/js/nav-light.js"></script>
