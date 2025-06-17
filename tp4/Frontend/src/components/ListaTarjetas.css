@@ -1,0 +1,26 @@
+.lista-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.lista-vacia {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.lista-vacia p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .lista-tarjetas {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+} 

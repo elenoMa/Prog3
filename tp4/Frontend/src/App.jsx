@@ -1,12 +1,19 @@
-import TraerPersonas from './components/TraerPersonas';
+import React from 'react'
+import TraerPersonas from './components/TraerPersonas'
+import './App.css'
 
 function App() {
   return (
-    <div style={{ textAlign: 'center', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ color: '#333' }}>Listado de Personas</h1>
-      <TraerPersonas />
+    <div className="App">
+      <header className="App-header">
+        <h1>Gestor de Personas</h1>
+        <p>API Backend + Frontend React</p>
+      </header>
+      <main>
+        <TraerPersonas />
+      </main>
     </div>
-  );
+  )
 }
 
-export default App; 
+export default App 
