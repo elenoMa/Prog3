@@ -1,21 +1,58 @@
+import React from 'react';
+import './TarjetaPersona.css';
+
 const TarjetaPersona = ({ persona }) => {
-  const { nombre, apellido, edad, email } = persona;
+  const { id, nombre, apellido, edad, email } = persona;
+
   return (
-    <div style={{
-      border: '1px solid #ccc',
-      borderRadius: '8px',
-      padding: '16px',
-      width: '250px',
-      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-      backgroundColor: '#fff',
-      transition: 'transform 0.2s',
-      ':hover': {
-        transform: 'scale(1.05)'
-      }
-    }}>
-      <h2 style={{ margin: '0 0 8px 0', color: '#333' }}>{nombre} {apellido}</h2>
-      <p style={{ margin: '4px 0', color: '#666' }}>Edad: {edad}</p>
-      <p style={{ margin: '4px 0', color: '#666' }}>Email: {email}</p>
+    <div className="tarjeta-persona">
+      <div className="tarjeta-header">
+        <div className="avatar">
+          {nombre.charAt(0).toUpperCase()}
+        </div>
+        <div className="persona-info">
+          <h3 className="nombre-completo">
+            {nombre} {apellido}
+          </h3>
+          <span className="edad">{edad} años</span>
+        </div>
+      </div>
+      
+      <div className="tarjeta-body">
+        <div className="campo">
+          <label>ID:</label>
+          <span>{id}</span>
+        </div>
+        
+        <div className="campo">
+          <label>Nombre:</label>
+          <span>{nombre}</span>
+        </div>
+        
+        <div className="campo">
+          <label>Apellido:</label>
+          <span>{apellido}</span>
+        </div>
+        
+        <div className="campo">
+          <label>Edad:</label>
+          <span>{edad} años</span>
+        </div>
+        
+        <div className="campo email">
+          <label>Email:</label>
+          <a href={`mailto:${email}`} className="email-link">
+            {email}
+          </a>
+        </div>
+      </div>
+      
+      <div className="tarjeta-footer">
+        <div className="estado">
+          <span className="estado-dot"></span>
+          Activo
+        </div>
+      </div>
     </div>
   );
 };

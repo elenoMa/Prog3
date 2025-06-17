@@ -1,8 +1,18 @@
+import React from 'react';
 import TarjetaPersona from './TarjetaPersona';
+import './ListaTarjetas.css';
 
 const ListaTarjetas = ({ personas }) => {
+  if (!personas || personas.length === 0) {
+    return (
+      <div className="lista-vacia">
+        <p>No hay personas para mostrar</p>
+      </div>
+    );
+  }
+
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
+    <div className="lista-tarjetas">
       {personas.map((persona) => (
         <TarjetaPersona key={persona.id} persona={persona} />
       ))}

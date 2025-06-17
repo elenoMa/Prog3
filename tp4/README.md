@@ -1,5 +1,7 @@
 # TP4: Sistemas de Información – Listado de Personas
 
+---
+
 Este trabajo práctico consiste en una aplicación web que muestra un listado de personas. El proyecto está dividido en dos partes: un **backend** que provee una API, y un **frontend** que consume dicha API y muestra la información al usuario.
 
 ---

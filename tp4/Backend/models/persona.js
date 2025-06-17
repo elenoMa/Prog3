@@ -1,9 +1,25 @@
+class Persona {
+  constructor(id, nombre, apellido, edad, email) {
+    this.id = id;
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+    this.email = email;
+  }
+}
+
+// Datos de ejemplo - al menos 5 personas
 const personas = [
-  { id: 1, nombre: 'Juan', apellido: 'Pérez', edad: 30, email: 'juan.perez@email.com' },
-  { id: 2, nombre: 'María', apellido: 'García', edad: 25, email: 'maria.garcia@email.com' },
-  { id: 3, nombre: 'Pedro', apellido: 'López', edad: 40, email: 'pedro.lopez@email.com' },
-  { id: 4, nombre: 'Ana', apellido: 'Martínez', edad: 35, email: 'ana.martinez@email.com' },
-  { id: 5, nombre: 'Lucía', apellido: 'Fernández', edad: 28, email: 'lucia.fernandez@email.com' }
+  new Persona(1, "Juan", "García", 28, "juan.garcia@email.com"),
+  new Persona(2, "María", "López", 32, "maria.lopez@email.com"),
+  new Persona(3, "Carlos", "Rodríguez", 25, "carlos.rodriguez@email.com"),
+  new Persona(4, "Ana", "Martínez", 29, "ana.martinez@email.com"),
+  new Persona(5, "Luis", "Fernández", 35, "luis.fernandez@email.com"),
+  new Persona(6, "Sofía", "González", 27, "sofia.gonzalez@email.com"),
+  new Persona(7, "Diego", "Pérez", 31, "diego.perez@email.com")
 ];
 
-module.exports = personas; 
+module.exports = {
+  Persona,
+  personas
+}; 
